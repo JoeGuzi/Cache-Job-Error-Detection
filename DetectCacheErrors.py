@@ -40,16 +40,16 @@ if os.path.exists(logFile):
     os.remove(logFile)
 
 # Server Connection Variable
-servername = "webags"
-username = "arcgis" #this must be an arcgis server admin account to access the reporting tools
-password = "s#L33sqUBU"  #you will need to put the admin password here
+servername = "servername"
+username = "username" #this must be an arcgis server admin account to access the reporting tools
+password = "password"  #you will need to put the admin password here
 
 # Import Geoprocessing Toolbox
 toolboxConnection = "http://" + servername + ":6080/arcgis/admin;System/ReportingTools;" + username + ";" + password
 arcpy.ImportToolbox(toolboxConnection)
 
 # Using Report CacheStatus_ReportingTools Geoprocessing service to create Json of the Cache status
-mapServerName = "ParcelTaxMapCache"
+mapServerName = "mapservicename"
 jobSummaryJSON = arcpy.ReportCacheStatus_ReportingTools(mapServerName + ":MapServer", "esriJobSummary", "", "", "", "")
 
 # Cache Status Variables
